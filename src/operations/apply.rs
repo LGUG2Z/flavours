@@ -1,6 +1,6 @@
 use anyhow::{anyhow, Context, Result};
 use base16_color_scheme::Scheme;
-use rand::seq::SliceRandom;
+use rand::prelude::IndexedRandom;
 use std::fs;
 use std::io::{self, Read};
 use std::path;
@@ -15,7 +15,7 @@ use crate::operations::build::build_template;
 /// Picks a random path, from given vec
 /// * `values` - Vec with paths
 fn random(values: Vec<path::PathBuf>) -> Result<path::PathBuf> {
-    let chosen = values.choose(&mut rand::thread_rng()).ok_or_else(|| {
+    let chosen = values.choose(&mut rand::rng()).ok_or_else(|| {
         anyhow!(
             "Scheme not found. Check if it exists, or run update schemes if you didn't already."
         )

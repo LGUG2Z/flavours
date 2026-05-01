@@ -21,7 +21,7 @@ dirs = "3.0"
 glob = "0.3"
 hex = "0.4"
 palette = "0.5"
-rand = "0.7"
+rand = "0.10"
 serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.8"
 shell-words = "1.0"
